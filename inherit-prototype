@@ -1,6 +1,6 @@
-#javascript 继承 原型链 [[Prototype]]
-*question：javascript一个函数实例有prototype属性吗?
-*A:
+# javascript 继承 原型链 [[Prototype]]
+* question：javascript一个函数实例有prototype属性吗?
+* A:
   弄错了prototype和[[Prototype]]
   这里用实例访问的应该是[[Prototype]]，这个是实例中拥有的属性，它是一个指针，指向构造函数的原型【注意首字母是大写】，
   他是“内部的”（权且这么翻译），这个特性是为了实现Javascript引擎用的，
