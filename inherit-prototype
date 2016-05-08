@@ -1,0 +1,17 @@
+#javascript 继承 原型链 [[Prototype]]
+*question：javascript一个函数实例有prototype属性吗?
+*A:
+  弄错了prototype和[[Prototype]]
+  这里用实例访问的应该是[[Prototype]]，这个是实例中拥有的属性，它是一个指针，指向构造函数的原型【注意首字母是大写】，
+  他是“内部的”（权且这么翻译），这个特性是为了实现Javascript引擎用的，
+  因此在Javascript中不能直接访问它，同时为了表示特性是内部值，用两个方括号加以区分，像这样[[Prototype]]。
+  
+  而prototype是构造函数中的属性，他也是一个指针，也指向构造函数原型。他是可见的
+  题主要访问的实际是[[Prototype]]，但是刚才说过这个是内部的，所以没有标准的方式访问，不过
+  1.Firefox，Safari，Chrome在每个对象上面都支持一个__proto__，可以当做[[Prototype]]
+  2.虽然无法访问[[Prototype]]，但是可以通过isPrototype()方法确认对象之间是否存在某种关系，比如Dog.prototype.isPrototype(dog1);//true
+  3.ECMAScript5中新增了一个方法Object.getPrototypeOf()，在支持他的浏览器中返回[[Prototype]]的值，就像这样使用Object.getPrototypeOf(dog1).name，
+  这个方法在ie9+，Firefox3.5+ ,Opera12+,和Chrome中支持。
+  
+  
+  答案来自于知乎 席铭
